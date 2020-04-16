@@ -4,19 +4,11 @@ import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import 'xxx/x.scss'
-
-import nameString from 'xxx/name'
-console.log(nameString);
-
 ReactDOM.render(
+  // 这里新标签是为了提示错误的. 好用
   <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
