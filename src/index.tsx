@@ -4,6 +4,11 @@ import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import 'xxx/x.scss'
+
+import nameString from 'xxx/name'
+console.log(nameString);
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
