@@ -6,6 +6,10 @@ import {
   Redirect
 } from "react-router-dom";
 import Layout from './components/Layout'
+import Money from "./views/Money";
+import Statistics from "./views/Statistics";
+import Tags from "./views/Tags";
+import NoMatch from "./views/NoMatch";
 
 
 
@@ -30,31 +34,4 @@ export default function App() {
     </Router>
   );
 }
-function NoMatch(){
-  return <h2>404</h2>
-}
 
-function Statistics() {
-  return (
-    <Layout>
-      <h3>统计3</h3>
-    </Layout>
-  )
-}
-
-
-  function Tags() {
-    return (
-      <Layout>
-        <h3>标签3</h3>
-      </Layout>
-    )
-  }
-
-  function Money() {
-  return (
-    <Layout>
-      <h3>记账3</h3>
-    </Layout>
-  )
-}
