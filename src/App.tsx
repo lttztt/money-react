@@ -5,7 +5,7 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import Layout from './components/Layout'
+// import Layout from './components/Layout'
 import Money from "./views/Money";
 import Statistics from "./views/Statistics";
 import Tags from "./views/Tags";
