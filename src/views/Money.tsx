@@ -1,5 +1,5 @@
-import React from 'react'
-import Layout from "../components/Layout";
+import React from 'react';
+import Layout from '../components/Layout';
 import styled from 'styled-components';
 import {TagsSection} from './money/TagsSection';
 import {NotesSection} from './money/NotesSection';
@@ -10,19 +10,11 @@ import {NumberPadSection} from './money/NumberPadSection';
 const MyLayout = styled(Layout)`
   display:flex;
   flex-direction: column;
-`
+`;
 const Money = () => {
   return (
     <MyLayout>
-      <TagsSection>
-        <ol>
-          <li>衣</li>
-          <li>食</li>
-          <li>住</li>
-          <li>行</li>
-        </ol>
-        <button>新增标签</button>
-      </TagsSection>
+      <TagsSection/>
       <NotesSection>
         <label>
           <span>备注</span>
@@ -57,6 +49,6 @@ const Money = () => {
         </div>
       </NumberPadSection>
     </MyLayout>
-  )
+  );
 };
 export default Money;
