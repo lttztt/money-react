@@ -22,10 +22,13 @@ const Wrapper = styled.section`
     margin-top: 8px;
   }
 `;
-
-const TagsSection: React.FC = () => {
+type Props = {
+  value: string[],
+  onChange: (selected: string[]) => void
+}
+const TagsSection: React.FC<Props> = (props) => {
+  const selectedTags = props.value;
   const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行']);
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const onAddTag = () => {
     const tagName = window.prompt('新增标签名?');
     if (tagName !== null) {
@@ -37,9 +40,9 @@ const TagsSection: React.FC = () => {
     const index = selectedTags.indexOf(tag);
     if (index >= 0) {
       const tags = selectedTags.filter(d => d !== tag); // 返回选中的所有tag中不含当前点击的tag的数组
-      setSelectedTags(tags);
+      props.onChange(tags);
     } else {
-      setSelectedTags([...selectedTags, tag]);
+      props.onChange([...selectedTags, tag]);
     }
   };
 
