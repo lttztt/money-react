@@ -1,10 +1,17 @@
-import React from 'react'
-import Layout from "../components/Layout";
+import React from 'react';
+import Layout from '../components/Layout';
+import useTags from '../useTags';
+
 const Tags = () => {
+  const {tags, setTags} = useTags();
   return (
     <Layout>
-      <h2>标签页</h2>
+      <ol>
+        {
+          tags.map(tag => <li key={tag}>{tag}</li>)
+        }
+      </ol>
     </Layout>
-  )
+  );
 };
 export default Tags;
