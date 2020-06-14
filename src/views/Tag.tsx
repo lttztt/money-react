@@ -9,11 +9,9 @@ type Params = {
 }
 const Tag: React.FC = () => {
 
-  let {tags} = useTags();
+  let {findTag} = useTags();
   let {id} = useParams<Params>();
-  let tag = tags.filter(tag => tag.id === parseFloat(id))[0];
-  console.log('tag');
-  console.log(tag);
+  let tag = findTag(parseFloat(id));
 
   return (
     <div>{tag.name}</div>

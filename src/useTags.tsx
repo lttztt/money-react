@@ -10,7 +10,8 @@ const initTags = [
 
 const useTags = () => { // 封装自定义hooks
   const [tags, setTags] = useState<{ id: number, name: string }[]>(initTags);
-  return {tags: tags, setTags};
+  const findTag = (id: number) => tags.filter(tag => tag.id === id)[0];
+  return {tags: tags, setTags, findTag};
 };
 
 export default useTags;
