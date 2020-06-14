@@ -1,34 +1,38 @@
-import React from "react"
+import React from 'react';
 import {
   HashRouter as Router,
   Switch,
   Route,
   Redirect
-} from "react-router-dom";
+} from 'react-router-dom';
 // import Layout from './components/Layout'
-import Money from "./views/Money";
-import Statistics from "./views/Statistics";
-import Tags from "./views/Tags";
-import NoMatch from "./views/NoMatch";
-
+import Money from './views/Money';
+import Statistics from './views/Statistics';
+import Tags from './views/Tags';
+import NoMatch from './views/NoMatch';
+import Tag from './views/Tag';
 
 
 export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/tags">
-          <Tags />
+        {/* exact 是精确匹配， 注意 404 不需要这样*/}
+        <Route exact path="/tags">
+          <Tags/>
         </Route>
-        <Route path="/money">
-          <Money />
+        <Route exact path="/tag/:tag">
+          <Tag/>
         </Route>
-        <Route path="/statistics">
-          <Statistics />
+        <Route exact path="/money">
+          <Money/>
         </Route>
-        <Redirect exact from="/" to="/money" />
+        <Route exact path="/statistics">
+          <Statistics/>
+        </Route>
+        <Redirect exact from="/" to="/money"/>
         <Route path="*">
-          <NoMatch />
+          <NoMatch/>
         </Route>
       </Switch>
     </Router>
