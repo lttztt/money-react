@@ -19,3 +19,10 @@ body {
   width: 1em;
   height: 1em;
 }
+
+input,button {
+  outline: none;
+}
+input,button:active{
+  outline: none;
+}
