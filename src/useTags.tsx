@@ -25,7 +25,7 @@ const useTags = () => { // 封装自定义hooks
     const index = findTagIndex(id);
     const tagClone = JSON.parse(JSON.stringify(tags));
     tagClone.splice(index, 1, {id, name: obj.name})
-    setTags(tagClone)
+    setTags(tagClone);   // react 推崇 不可变数据  
   }
   return {tags: tags, setTags, findTag, updateTag, findTagIndex};
 };
