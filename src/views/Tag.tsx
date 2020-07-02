@@ -4,8 +4,11 @@ import {
   useParams
 } from 'react-router-dom';
 import Icon from '../components/Icon';
-import Button from '../components/Button';
 import styled from 'styled-components';
+import {Button} from '../components/Button';
+import {Input} from '../components/Input';
+import {Center} from '../components/Center';
+import {Space} from '../components/Space';
 
 const Topbar = styled.header`
   display:flex;
@@ -14,7 +17,13 @@ const Topbar = styled.header`
   line-height: 20px;
   padding: 14px;
   background:#fff;
-`
+`;
+
+const InputWraper = styled.div`
+  background:#fff;
+  padding: 0 16px;
+  margin-top: 8px;
+`;
 
 type Params = {
   id: string
@@ -28,17 +37,20 @@ const Tag: React.FC = () => {
   return (
     <div>
       <Topbar>
-        <Icon name="left" />
+        <Icon name="left"/>
         <span>编辑标签</span>
-        <Icon />
+        <Icon/>
       </Topbar>
       <div>
-        <label>
-          <span>标签名</span>
-          <input type="text" placeholder="标签名"/> </label>
-        <div>
+        <InputWraper>
+          <Input type="text" value={tag.name} label="标签名" placeholder="标签"/>
+        </InputWraper>
+        <Center>
+          <Space/>
+          <Space/>
+          <Space/>
           <Button>删除标签</Button>
-        </div>
+        </Center>
       </div>
     </div>
   );

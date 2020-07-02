@@ -22,6 +22,7 @@ body {
 
 input,button {
   outline: none;
+  font: inherit;
 }
 input,button:active{
   outline: none;
