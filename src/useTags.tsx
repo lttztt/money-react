@@ -10,6 +10,12 @@ const initTags = [
 
 const useTags = () => { // 封装自定义hooks
     const [tags, setTags] = useState<{ id: number, name: string }[]>(initTags);
+    const addTag = () => {
+        const tagName = window.prompt('新增标签名?');
+        if (tagName !== null && tagName.trim() !== '') {
+            setTags([...tags, {id: createId(), name: tagName}]);
+        }
+    };
     const findTag = (id: number) => tags.filter(tag => tag.id === id)[0];
     const findTagIndex = (id: number) => {
         let result = -1;
@@ -28,7 +34,7 @@ const useTags = () => { // 封装自定义hooks
     const deleteTag = (id: number) => {
         setTags(tags.filter(tag => tag.id !== id));   // react 推崇 不可变数据
     };
-    return {tags: tags, setTags, findTag, updateTag, findTagIndex, deleteTag};
+    return {tags: tags, addTag, setTags, findTag, updateTag, findTagIndex, deleteTag};
 };
 
 export default useTags;
