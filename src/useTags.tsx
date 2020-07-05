@@ -1,15 +1,26 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {createId} from './lib/createId';
-
-const initTags = [
-    {id: createId(), name: '衣'},
-    {id: createId(), name: '食'},
-    {id: createId(), name: '住'},
-    {id: createId(), name: '行'},
-];
+import {useUpdate} from "./hooks/useUpdate";
 
 const useTags = () => { // 封装自定义hooks
-    const [tags, setTags] = useState<{ id: number, name: string }[]>(initTags);
+    const [tags, setTags] = useState<{ id: number, name: string }[]>([]);
+    useEffect(() => {
+        let localTags = JSON.parse(window.localStorage.getItem('tags') || '[]');
+        if(localTags.length === 0) {
+            localTags = [
+                {id: createId(), name: '衣'},
+                {id: createId(), name: '食'},
+                {id: createId(), name: '住'},
+                {id: createId(), name: '行'},
+            ]
+        }
+        setTags(localTags)
+    }, []);  // 组件挂在时执行
+
+    useUpdate(() => {
+        window.localStorage.setItem('tags', JSON.stringify(tags));
+    }, [tags]);
+
     const addTag = () => {
         const tagName = window.prompt('新增标签名?');
         if (tagName !== null && tagName.trim() !== '') {
